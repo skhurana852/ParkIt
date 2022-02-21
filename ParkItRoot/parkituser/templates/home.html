@@ -5,7 +5,19 @@
     <body>
         <div>
             <h3>Welcome to Park It</h3>
-            <h5>Please select your location</h5>
+            <h5>Please select your city and area</h5>
+            <div>
+                <form action="{% url 'view_parking_space' %}", method="POST">
+                    {% csrf_token %}
+                    <input type='text' name="city" placeholder="enter city">
+                    <input type="text" name="area" placeholder="enter area">
+                    <input type="submit" value="find space">
+                </form>
+            </div>
+
+            {% for data in parking_data %}
+            <p>{{data}}</p>
+            {% endfor %}
         </div>
     </body>
 </html>
