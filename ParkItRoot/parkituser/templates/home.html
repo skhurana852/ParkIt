@@ -15,9 +15,13 @@
                 </form>
             </div>
 
-            {% for data in parking_data %}
-            <p>{{data}}</p>
-            {% endfor %}
+            {% if parking_data %}
+                {% for data in parking_data %}
+                    <p>{{data}}</p><br>
+                {% endfor %}
+            {% else %}
+                <p>OOPS No Data</p>
+            {% endif %}
         </div>
     </body>
 </html>
