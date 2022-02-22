@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 import json
 from parkituser.models import ParkItSpaceProvider
+from .form import SpaceProviderForm
 
 def view_parking_space(request):
     if request.method == "POST":
@@ -15,3 +16,9 @@ def view_parking_space(request):
 
     elif request.method == "GET":
         return render(request, "home.html")
+
+def add_space_provider(request):
+    form = SpaceProviderForm()
+    return render(request, "addSpaceProvider.html",{
+        'form': form
+    })
